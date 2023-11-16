@@ -1,0 +1,157 @@
+/* Box Model Hack */
+* {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+span {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+table {
+  display: block;
+  margin: 2em auto;
+  width: 90%;
+}
+tbody {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px solid black;
+}
+#titleRow {
+  width: calc(100%);
+  border-bottom: 1px solid black;
+}
+#dayRow {
+  display: flex;
+  flex-flow: row nowrap;
+  width: calc(100%);
+  border-bottom: 1px solid black;
+}
+#dayRow td + td {
+  border-left: 1px solid black;
+}
+#eventRow {
+  display: flex;
+  flex-flow: row nowrap;
+  width: calc(100%);
+}
+#eventRow td + td{
+  border-left: 1px solid black;
+}
+#titleRow td {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+#dayRow td {
+  display: flex;
+  flex-flow: row wrap;
+  width: calc(50%);
+  align-items: flex-start;
+  justify-content: center;
+}
+#eventRow td {
+  display: flex;
+  flex-flow: column wrap;
+  width: calc(10%);
+  align-items: center;
+  justify-content: space-between;
+}
+#eventRow img {
+  flex-grow: 0;
+  max-width: 100%;
+}
+section {
+  margin: 2em auto;
+  width: 90%;
+  height: 550px;
+  background-image: url(decathlon_images/decathletes.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+td:hover {
+  background-color: lightblue;
+  transition-duration: 1s;
+}
+td:hover img {
+  opacity: .07;
+  transition-duration: 1s;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+/* mobile-view.css */
+/* Add styles for the mobile view here */
+@media screen and (min-width: 801px) {
+  /* Hide the mobile view on larger screens */
+  .mobile-view {
+    display: none;
+  }
+
+  /* Show the desktop view on larger screens */
+  .desktop-view {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /* Hide the desktop view on smaller screens */
+  .desktop-view {
+    display: none;
+  }
+
+  /* Show the mobile view on smaller screens */
+  .mobile-view {
+    display: block;
+  }
+
+  /* Center the text inside h2 tags */
+  #dayOneRow,
+  #dayTwoRow {
+    display: flex;
+    flex-flow: row wrap;
+    width: calc(100%);
+    align-items: flex-start;
+    justify-content: center;
+    border-bottom: 1px solid black;
+  }
+
+  #dayOneEventsRow td{
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+
+  #dayTwoEventsRow td{
+    border-left: 1px solid black;
+  }
+}
